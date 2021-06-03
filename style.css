@@ -1,0 +1,48 @@
+body {
+    background-size: cover;
+    cursor: default;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.heading {
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
+}
+
+#start,
+#no_of_objects,
+#status,
+#click {
+    font-size: 15px;
+}
+
+.copy_right_footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgb(189, 189, 189);
+    color: rgb(255, 255, 255);
+    line-height: 3;
+    text-align: center;
+}
+
+canvas {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 130px;
+    box-shadow: 5px 5px 5px white;
+}
+
+#nameofobject:focus { 
+    outline: none !important;
+    box-shadow: 0 0 10px white;
+}
+
+#nameofobject {
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 30px;
+    width: 300px;
+    font-size: 14px;
+}
