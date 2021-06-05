@@ -4,22 +4,19 @@
   <title>AI Object Finder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="AI LOGO.png" />
-  <meta name="viewport" content="minimum-scale=1,initial-scale=1,width=device-width,shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
   </script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
@@ -31,10 +28,11 @@
 <body onkeypress="myFunction(event)" oncontextmenu="myalert();" background="background.jpg">
 
   <center>
-    <h1 style="cursor: default; color: white;" class="btn btn-warning heading"><label
+    <h1 style="cursor: default; color: white; padding: 0px;" class="btn btn-warning heading"><label
         style="margin-top: 10px; font-weight: bold;"><b>AI Object Finder</b></label>
       <br>
-      <label style="font-size: 14px; float: none;"><b style="color: white;">Note<b> - </b></b><b>The input name which you will give
+      <label style="font-size: 14px; float: none;"><b style="color: white;">Note<b> - </b></b><b>The input name which
+          you will give
           should match the names present in CoCo model then only it will detect.</b></label>
     </h1>
     <br><br>
@@ -46,265 +44,18 @@
       <br><br>
       <input type="button" style="color: white; float: left;" onclick="start();" class="btn btn-success" id="start"
         value="Start">
-      &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
-      <input type="button" style="color: white; float: left; margin-left: 20px;" onclick="s_h();" class="btn btn-info"
-        id="click" value="Show object names">
     </div>
 
     <div style="width: 300px; text-align: left;">
       <br><br>
-      <h3 style="margin-top: 20px;cursor: default; color: white;" id="no_of_objects" class="btn btn-warning"></h3>
+      <h3 id="status" style="margin-top: 20px;cursor: default;" class="btn btn-danger text-light"></h3>
       <br>
       <br>
-      <h3 id="status" style="margin-top: 20px;cursor: default; color: white;" class="btn btn-danger"></h3>
-    </div>
-    <br><br>
-    <div style="color: white; font-size: 14px; display: none; width: 300px; text-align: left;" id="hint">
-      <h1>Names in coco ssd model</h1>
-      <p>1:
-        displayName: 'person'
-        <br>
-        2:
-        displayName: 'bicycle'
-        <br>
-        3:
-        displayName: 'car'
-        <br>
-        4:
-        displayName: 'motorcycle'
-        <br>
-        5:
-        displayName: 'airplane'
-        <br>
-        6:
-        displayName: 'bus'
-        <br>
-        7:
-        displayName: 'train'
-        <br>
-        8:
-        displayName: 'truck'
-        <br>
-        9:
-        displayName: 'boat'
-        <br>
-        10:
-        displayName: 'traffic light'
-        <br>
-        11:
-        displayName: 'fire hydrant'
-        <br>
-        12:
-        displayName: 'stop sign'
-        <br>
-        13:
-        displayName: 'parking meter'
-        <br>
-        14:
-        displayName: 'bench'
-        <br>
-        15:
-        displayName: 'bird'
-        <br>
-        16:
-        displayName: 'cat'
-        <br>
-        17:
-        displayName: 'dog'
-        <br>
-        18:
-        displayName: 'horse'
-        <br>
-        19:
-        displayName: 'sheep'
-        <br>
-        20:
-        displayName: 'cow'
-        <br>
-        21:
-        displayName: 'elephant'
-        <br>
-        22:
-        displayName: 'bear'
-        <br>
-        23:
-        displayName: 'zebra'
-        <br>
-        24:
-        displayName: 'giraffe'
-        <br>
-        25:
-        displayName: 'backpack'
-        <br>
-        26:
-        displayName: 'umbrella'
-        <br>
-        27:
-        displayName: 'handbag'
-        <br>
-        28:
-        displayName: 'tie'
-        <br>
-        29:
-        displayName: 'suitcase'
-        <br>
-        30:
-        displayName: 'frisbee'
-        <br>
-        31:
-        displayName: 'skis'
-        <br>
-        32:
-        displayName: 'snowboard'
-        <br>
-        33:
-        displayName: 'sports ball'
-        <br>
-        34:
-        displayName: 'kite'
-        <br>
-        35:
-        displayName: 'baseball bat'
-        <br>
-        36:
-        displayName: 'baseball glove'
-        <br>
-        37:
-        displayName: 'skateboard'
-        <br>
-        38:
-        displayName: 'surfboard'
-        <br>
-        39:
-        displayName: 'tennis racket'
-        <br>
-        40:
-        displayName: 'bottle'
-        <br>
-        41:
-        displayName: 'wine glass'
-        <br>
-        42:
-        displayName: 'cup'
-        <br>
-        43:
-        displayName: 'fork'
-        <br>
-        44:
-        displayName: 'knife'
-        <br>
-        45:
-        displayName: 'spoon'
-        <br>
-        46:
-        displayName: 'bowl'
-        <br>
-        47:
-        displayName: 'banana'
-        <br>
-        48:
-        displayName: 'apple'
-        <br>
-        49:
-        displayName: 'sandwich'
-        <br>
-        50:
-        displayName: 'orange'
-        <br>
-        51:
-        displayName: 'broccoli'
-        <br>
-        52:
-        displayName: 'carrot'
-        <br>
-        53:
-        displayName: 'hot dog'
-        <br>
-        54:
-        displayName: 'pizza'
-        <br>
-        56:
-        displayName: 'donut'
-        <br>
-        57:
-        displayName: 'cake'
-        <br>
-        58:
-        displayName: 'chair'
-        <br>
-        59:
-        displayName: 'couch'
-        <br>
-        60:
-        displayName: 'potted plant'
-        <br>
-        61:
-        displayName: 'bed'
-        <br>
-        62:
-        displayName: 'dining table'
-        <br>
-        63:
-        displayName: 'toilet'
-        <br>
-        64:
-        displayName: 'tv'
-        <br>
-        65:
-        displayName: 'laptop'
-        <br>
-        66:
-        displayName: 'mouse'
-        <br>
-        67:
-        displayName: 'remote'
-        <br>
-        68:
-        displayName: 'keyboard'
-        <br>
-        69:
-        displayName: 'cell phone'
-        <br>
-        70:
-        displayName: 'microwave'
-        <br>
-        71:
-        displayName: 'oven'
-        <br>
-        72:
-        displayName: 'toaster'
-        <br>
-        73:
-        displayName: 'sink'
-        <br>
-        74:
-        displayName: 'refrigerator'
-        <br>
-        75:
-        displayName: 'book'
-        <br>
-        76:
-        displayName: 'clock'
-        <br>
-        77:
-        displayName: 'vase'
-        <br>
-        78:
-        displayName: 'scissors'
-        <br>
-        79:
-        displayName: 'teddy bear'
-        <br>
-        80:
-        displayName: 'hair drier'
-        <br>
-        81:
-        displayName: 'toothbrush'
-        <br><br><br>
-      </p>
+      <h3 id="no_of_objects" style="margin-top: 20px; cursor: default; color: white;" class="btn btn-light text-dark"></h3>
+      <br>
     </div>
 
-    <div style="width: 225px; margin-top: 20px; display: none; border-radius: 20px;" id="alert"
+    <div style="width: 225px; margin-top: 320px; display: none; border-radius: 20px;" id="alert"
       class="alert alert-danger alert-dissmisable">
       <label style="font-size: 16px; color: #b6a100;margin-right: 10px;">⚠️</label><b style="color: black;">ALERT: </b>
       <labe style="color: black;">Content is protected!!</labe>
